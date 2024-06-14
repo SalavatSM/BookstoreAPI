@@ -1,0 +1,43 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Edit{% else %}New{% endif %} Book</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="field">
+        <label class="label">Title</label>
+        <div class="control">
+            {{ form.title }}
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Author</label>
+        <div class="control">
+            {{ form.author }}
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Published Date</label>
+        <div class="control">
+            {{ form.published_date }}
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">ISBN</label>
+        <div class="control">
+            {{ form.isbn }}
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Price</label>
+        <div class="control">
+            {{ form.price }}
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <button class="button is-primary" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
